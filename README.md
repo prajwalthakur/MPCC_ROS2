@@ -34,3 +34,19 @@ To run RRT, follow these steps:
 - ``` bash ros2 launch f1tenth_gym_ros gym_bridge_launch.py```
 - ```bash ros2 launch rrt sim_rrt_launch.py```
     ( other opponent car will be treated as a static obstacle)
+
+# Nominal MPCC ( not robust to computation latency : 30 msec ) 
+
+
+https://github.com/user-attachments/assets/5af5b187-505e-4d26-b32e-8fad1be2189b
+
+
+# Robust MPCC
+
+
+
+https://github.com/user-attachments/assets/5c91acf2-f56b-4103-915f-1cf847a61e8b
+
+
+
+
