@@ -1,0 +1,57 @@
+
+mpcc_node:
+  ros__parameters:
+    horizonLength: 20
+    ctrTs: 0.1
+    ModelNo: 1
+    fullBound: 1
+    speed_max_limit: 6
+    thetadot_max: 6
+    acc_max_limit: 5
+    max_steering_angle: 0.399 
+    pi: 3.14159
+    two_pi: 6.28318
+    two_pi_inverse: 0.15915494  # Precomputed value for 1/(2*pi)
+    
+    # Precomputed values for Tx and Tu arrays
+    Tx: [1.0, 1.0, 0.15915494, 0.16666667, 0.1]  # 1/(2*pi) ≈ 0.15915494, 1/speed_max_limit = 0.16666667
+    Tu: [0.2, 2.50626566, 0.16666667]  # 1/acc_max_limit = 0.2 , 1/max_steering_angle ≈ 2.50626566, 1/thetadot_max ≈ 0.16666667
+
+    invTx: [1.0, 1.0, 6.28318, 6.0, 10.0]  # x,y,yaw,v,theta
+    invTu: [5.0, 0.399, 6.0]        
+
+    TDu: [1.0, 1.0, 1.0,1.0] # Assuming np.ones((3,1)) means [1, 1, 1]
+    invTDu: [1.0, 1.0, 1.0,1.0]  # Assuming np.ones((3,1)) means [1, 1, 1]
+    
+    # Bounds for normalized state-inputs
+    #                 [x,y,psi,v,theta,v_dot,delta,theta_dot]
+    lb_boundsStates: [-10000.0 , -10000.0   ,   -1.0    ,  0.0 ,  0.0  , -1.0 , -1.0, 0.0 ]
+    ub_boundsStates: [10000.0  ,  10000.0  ,    1.0    ,  1.0   , 10000.0 , 1.0  , 1.0  , 1.0 ]
+
+    # Bounds for [D(vdot),D(delta),D(theta_dot)]
+    lb_boundsInput: [-0.25, -0.25, -5.0 ]
+    ub_boundsInput: [0.25,  0.25,   5.0]
+
+    qC: 0.5
+    qCNmult: 100
+    qL: 10006
+
+    qVtheta: 0.01
+    qOmega: 5.0
+    qOmegaNmult: 1
+
+    rvDot: 1e-4
+    rDelta: 1e-4
+    rVtheta: 1e-6
+
+    rvdDot: 0.01
+    rdDelta: 0.9
+    rdVtheta: 0.001
+
+    q_eta: 250
+
+    costScale: 1
+    latency: null  # 'None' is not a valid YAML value; use 'null' instead
+
+    real_test: false  # Booleans should be in lowercase (false, true)
+    ControllerReset: true

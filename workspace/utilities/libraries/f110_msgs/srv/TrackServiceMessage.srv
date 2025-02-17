@@ -1,0 +1,11 @@
+#empty request
+---
+#response is trajectory
+# geometry_msgs/Vector3[] righttrajectory
+# geometry_msgs/Vector3[] lefttrajectory
+# geometry_msgs/Vector3[] centertrajectory
+# float32[] 
+Waypoint[] righttrajectory
+Waypoint[] lefttrajectory
+Waypoint[] centertrajectory
+bool success
