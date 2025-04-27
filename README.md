@@ -1,8 +1,9 @@
-# F1-tenth ros2-humble  simulator
+# F1-tenth ros2-humble simulator
 # Model Predictive Contour Control Implementation robustness to Computation Latency
-- Implemented MPCC in ROS2 simulator [MPCC](https://onlinelibrary.wiley.com/doi/full/10.1002/oca.2123)
-At every iteration, I linearized the dynamics and constraints to formulate the problem as a QP, then used the HPIPM solver to obtain the locally optimal solution. Manual linearization helped reduce the solving time.
-- Controller Dynamics Has been modified to consider the computational latency of solver .
+- Implemented MPCC in ROS2 simulator.
+- paper reference [MPCC](https://onlinelibrary.wiley.com/doi/full/10.1002/oca.2123)
+- At every iteration,The dynamics and constraints has been linearized to formulate the problem as a QP, then used the HPIPM solver to obtain the locally optimal solution. Manual linearization helped reduce the solving time.
+- Controller Dynamics has been modified to consider the computational latency of solver .
 # Steps to reproduce the results
 - clone this reposittory
 - Prerequiste : follow this step to install docker and nvidia-docker toolkit [docker&nvidia-docker](https://github.com/f1tenth/f1tenth_gym_ros?tab=readme-ov-file#with-an-nvidia-gpu)
